@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-app-name.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://task-manger-django.onrender.com/', 'localhost', '127.0.0.1']
 
 
 # Application definition
