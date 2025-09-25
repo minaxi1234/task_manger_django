@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <nav
+      class="bg-blue-600 text-white p-4 flex justify-between items-center mb-3"
+    >
+      <!-- Logo / Brand -->
+      <div class="font-bold text-xl">
+        <a href="{% url 'home' %}">Task Manager</a>
+      </div>
+
+      <!-- Links -->
+      <div class="space-x-4">
+        {% if user.is_authenticated %}
+        <span>Hi, {{ user.username }}</span>
+        <form action="{% url 'logout' %}" method="post" class="inline">
+          {% csrf_token %}
+          <button type="submit" class="hover:underline">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}" class="hover:underline">Login</a>
+        <a href="{% url 'register' %}" class="hover:underline">Register</a>
+        {% endif %}
+      </div>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
